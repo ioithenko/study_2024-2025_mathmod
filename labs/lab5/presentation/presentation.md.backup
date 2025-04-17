@@ -1,72 +1,40 @@
 ---
 ## Front matter
-title: "Отчёта по лабораторной работе №5"
-subtitle: "Математическое моделирование"
-author: "Ищенко Ирина НПИбд-02-22"
-
-## Generic otions
 lang: ru-RU
-toc-title: "Содержание"
+title: Лабораторная работе №5
+subtitle: "Математическое моделирование"
+author:
+  - Ищенко Ирина
+institute:
+  - Российский университет дружбы народов, Москва, Россия
 
-## Bibliography
-bibliography: bib/cite.bib
-csl: pandoc/csl/gost-r-7-0-5-2008-numeric.csl
-
-## Pdf output format
-toc: true # Table of contents
-toc-depth: 2
-lof: true # List of figures
-lot: true # List of tables
-fontsize: 12pt
-linestretch: 1.5
-papersize: a4
-documentclass: scrreprt
-## I18n polyglossia
-polyglossia-lang:
-  name: russian
-  options:
-	- spelling=modern
-	- babelshorthands=true
-polyglossia-otherlangs:
-  name: english
-## I18n babel
+## i18n babel
 babel-lang: russian
 babel-otherlangs: english
-## Fonts
-mainfont: IBM Plex Serif
-romanfont: IBM Plex Serif
-sansfont: IBM Plex Sans
-monofont: IBM Plex Mono
-mathfont: STIX Two Math
-mainfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-romanfontoptions: Ligatures=Common,Ligatures=TeX,Scale=0.94
-sansfontoptions: Ligatures=Common,Ligatures=TeX,Scale=MatchLowercase,Scale=0.94
-monofontoptions: Scale=MatchLowercase,Scale=0.94,FakeStretch=0.9
-mathfontoptions:
-## Biblatex
-biblatex: true
-biblio-style: "gost-numeric"
-biblatexoptions:
-  - parentracker=true
-  - backend=biber
-  - hyperref=auto
-  - language=auto
-  - autolang=other*
-  - citestyle=gost-numeric
-## Pandoc-crossref LaTeX customization
-figureTitle: "Рис."
-tableTitle: "Таблица"
-listingTitle: "Листинг"
-lofTitle: "Список иллюстраций"
-lotTitle: "Список таблиц"
-lolTitle: "Листинги"
-## Misc options
-indent: true
+
+## Formatting pdf
+toc: false
+toc-title: Содержание
+slide_level: 2
+aspectratio: 169
+section-titles: true
+theme: metropolis
 header-includes:
-  - \usepackage{indentfirst}
-  - \usepackage{float} # keep figures where there are in the text
-  - \floatplacement{figure}{H} # keep figures where there are in the text
+ - \metroset{progressbar=frametitle,sectionpage=progressbar,numbering=fraction}
+ - '\makeatletter'
+ - '\beamer@ignorenonframefalse'
+ - '\makeatother'
 ---
+
+
+## Докладчик
+
+  * Ищенко Ирина Олеговна
+  * уч. группа: НПИбд-02-22
+  * Факультет физико-математических и естественных наук
+  * Российский университет дружбы народов
+
+
 
 # Цель работы
 
@@ -157,7 +125,7 @@ $$\begin{cases}
 \end{cases}
 $$
 
-Получим, что $x_0 = \dfrac{0.64}{0.017} = 37.64705882352941$, а $y_0 = \dfrac{0.71}{0.046}= 15.434782608695652$
+Получим, что $x_0 = \dfrac{0.64}{0.017} = $, а $y_0 = \dfrac{0.71}{0.046}=$
 
 Проверим, что эта точка действительно является стационарной, подставив ее в начальные условия.
 
@@ -171,11 +139,12 @@ sol2 = solve(prob2, Tsit5())
 plot(sol2, xaxis = "Жертвы", yaxis = "Хищники", label = ["Жертвы" "Хищники"])
 ```
 
-Получим график из двух прямых, параллельных оси абсцисс, то есть численность и жертв, и хищников не меняется, как м должно быть в стационарном состоянии (рис. [-@fig:003]).
+##
 
 ![График изменения численности хищников и численности жертв в стационарном состоянии](image/3.png){#fig:003 width=70%}
 
-Зададим параметры и систему ДУ в OpenModelica.
+##
+
 ```
 model lab5_1
   parameter Real a = -0.71;
@@ -193,15 +162,15 @@ equation
 end lab5_1;
 ```
 
-Выполним симуляцию на интервале от (0, 50), который брали для Julia и получим следующие графики изменения численности хищников и численности жертв (рис. [-@fig:004]) и зависимости численности хищников от численности жертв (рис. [-@fig:005]).
+##
 
 ![График изменения численности хищников и численности жертв. OpenModelica](image/4.png){#fig:004 width=70%}
 
+##
+
 ![График зависимости численности хищников от численности жертв. OpenModelica](image/5.png){#fig:005 width=70%}
 
-Графики периодичны, фазовый портрет замкнут, как и должно быть в жесткой модели Лотки-Вольтерры.
-
-Также построим тут изменения численности хищников и численности жертв в стационарном состоянии.
+##
 
 ```
 model lab5_2
@@ -220,16 +189,13 @@ equation
 end lab5_2;
 ```
 
-Получим график, в котором численность жертв и хищников постоянна(рис. [-@fig:006]).
+##
 
 ![График изменения численности хищников и численности жертв в стационарном состоянии](image/6.png){#fig:006 width=70%}
 
 
-# Выводы
+## Выводы
 
 В ходе выполнения лабораторной работы я исследовала математическую модель Лотки-Вольтерры.
 
-# Список литературы{.unnumbered}
 
-::: {#refs}
-:::
