@@ -151,8 +151,7 @@ model lab8_1
 ```
 
 ## Задание
-
-```
+  
   Real M1(start=6.4);
   Real M2(start=4.1);
   
@@ -184,11 +183,7 @@ model lab8_2
   parameter Real b = p_cr/(tau1^2*tau2^2*p1^2*p2^2*N*q);  
   parameter Real c1 = (p_cr-p1)/(tau1*p1);
   parameter Real c2 = (p_cr-p2)/(tau2*p2);
-```
-
-## Задание
-
-```
+  
   Real M1(start=6.4);
   Real M2(start=4.1);
   
